@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Table</title>
+    <style>
+        table{
+            /* border-collapse: separate; */
+            text-align: center;
+        }
+        .ln{
+            text-align: center;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+        .aiml{
+            color: rgb(31, 44, 192);
+        }
+        .fed{
+            color: rgb(192, 31, 31);
+        }
+        .mat{
+            color: rgb(31, 192, 31);
+        }
+        .daa{
+            color: rgb(192, 192, 31);
+        }
+        .days{
+            background-color: rgb(255, 204, 204);
+            font-weight: bold;
+        }
+        .hr{
+            background-color: rgb(255, 255, 204);
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+    <table border="5">
+        <caption style="width: auto;">S 104 - Class Time Tbale</caption>
+        <tr boder-collabse="collapse">
+            <th class="days">Day&hour</th>
+            <th class="hr">1</th>
+            <th class="hr">2</th>
+            <th class="hr">3</th>
+            <th class="hr">4</th>
+            <th class="hr">5</th>
+            <th class="hr">6</th>
+            <th class="hr">7</th>
+            <th class="hr">8</th>
+            <th class="hr">9</th>
+        </tr>
+        <tr>
+            <th class="days">Monday</th>
+            <td class="fed">FEDF</td>
+            <td class="aiml">AI & ML</td>
+            <td class="daa">DAA</td>
+            <td class="mat">MATH</td>
+            <td rowspan="6" class = "ln">Lunch Break</td>
+            <td class="fed">FEDF</td>
+            <td class="aiml">AI & ML</td>
+            <td class="daa">DAA</td>
+            <td class="mat">MATH</td>
+        </tr>
+        <tr>
+            <th class="days">Tuesday</th>
+            <td class="aiml">AI & ML</td>
+            <td class="daa">DAA</td>
+            <td class="mat">MATH</td>
+            <td class="fed">FEDF</td>
+            <td class="aiml">AI & ML</td>
+            <td class="daa">DAA</td>
+            <td class="mat">MATH</td>
+            <td class="fed">FEDF</td>
+        </tr>
+        <tr>
+            <th class="days">Wednesday</th>
+            <td class="daa">DAA</td>
+            <td class="mat">MATH</td>
+            <td class="fed">FEDF</td>
+            <td class="aiml">AI & ML</td>
+            <td colspan="4" style="text-align: center; color: brown;">Lab</td>
+        </tr>
+        <tr>
+            <th class="days">Thursday</th>
+            <td class="mat">MATH</td>
+            <td class="fed">FEDF</td>
+            <td class="aiml">AI & ML</td>
+            <td class="daa">DAA</td>
+            <td class="mat">MATH</td>
+            <td class="fed">FEDF</td>
+            <td class="aiml">AI & ML</td>
+            <td class="daa">DAA</td>
+        </tr>
+        <tr>
+            <th class="days">Friday</th>
+            <td class="fed">FEDF</td>
+            <td class="aiml">AI & ML</td>
+            <td class="daa">DAA</td>
+            <td class="mat">MATH</td>
+            <td class="fed">FEDF</td>
+            <td class="aiml">AI & ML</td>
+            <td class="daa">DAA</td>
+            <td class="mat">MATH</td>
+        </tr>
+        <tr>
+            <th class="days">Saturday</th>
+            <td class="aiml">AI & ML</td>
+            <td colspan="3" style="text-align: center;" class="daa">DAA</td>
+            <td class="daa">DAA</td>
+            <td class="mat">MATH</td>
+            <td class="fed">FEDF</td>
+            <td class="mat">MATH</td>
+        </tr>
+        <tr>
+            <th class="days">Sunday</th>
+            <td colspan="9" style="text-align: center;">No Classes</td>
+    </table>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        form {
+            max-width: 800px;
+            margin: 10px auto;
+            border: 1px solid;
+            border-radius: 10px;
+            padding: 30px;
+            background-color: rgba(195, 174, 174, 0.319);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+           
+        }
+        </style>
+</head>
+<body background="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80">
+    <h1>Registration </h1>
+    <p>Welcome to the registration page. Please fill out the form below to register.</p>
+    <form action="https://www.google.com">
+        <h3>Personal Information : </h3>
+
+        <label for="name"name="name">Name : </label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="gender" name = "gen">Gender : </label>
+        <input type="radio" name="gen" value="m"> male 
+        <input type="radio" name="gen" value="f"> female<br><br>
+
+        <label for="email" name="email">Email : </label>
+        <input type="email" name="email" required><br><br>
+
+        <label for="phone" name="ph">Phone : </label>
+        <input type="tel" name="ph" pattern="[0-9]{10}" required><br><br>
+
+        <label for="Dob" name="dob">Date of Birth : </label>
+        <input type="date"name="dob" required><br><br>
+        
+        <label for="Address" name="add">Address : </label>
+        <textarea name="add" rows="3" cols="20" required></textarea><br><br>
+
+        <h3>Accadmic details : </h3>
+        <label for="branch" name="branch">Branch : </label>
+        <select name="branch" required>
+            <option value="" disabled selected>Select your branch</option>
+            <option value="Cse">CSE</option>
+            <option value="Ece">ECE</option>
+            <option value="Eee">EEE</option>
+            <option value="Mech">MECH</option>
+        </select><br><br>
+        <label for="language" name="lang">Language : </label>
+        <input type="checkbox" name="lang" value="English"> English
+        <input type="checkbox" name="lang" value="Hindi"> Hindi
+        <input type="checkbox" name="lang" value="Telugu"> Telugu<br><br>
+
+        <label for="resume" name="resume">Upload Resume : </label>
+        <input type="file" name="resume" accept=".pdf,.doc,.docx"><br><br>
+
+        <button type="submit">Submit🤗</button>
+        <button type="reset">Reset</button>
+
+    <p>By clicking submit, you agree to our <a href="https://www.google.com">terms and conditions</a>.</p>
+    <p>For any queries, please contact us at <a href="mailto:kasaraneni.venumadhav@gmail.com">Mail</a> 
+    </form>
+    
+</body>
+</html>

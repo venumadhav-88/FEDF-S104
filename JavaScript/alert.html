@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java stript </title>
+</head>
+<body>
+    <script>
+        var x = 100;
+        var name = "John";
+        document.write(typeof x);
+        document.write("<br>");
+        document.write(typeof name);
+        var y = 10;
+        var z = 20;
+        document.write("<br>");
+        document.write(typeof(null));
+        document.write("<br>");
+        document.write(y + z);
+        var i = 10;
+        document.write("<br>");
+        document.write(i); // Outputs 10
+        {
+            var i = 20; // This 'i' is block-scoped
+            document.write("<br>");
+            document.write(i); // Outputs 20
+        }
+        document.write("<br>");
+        document.write(i); // Outputs 20, because 'var' is function-scoped,
+
+        let j = 10;
+        document.write("<br>");
+        document.write(j); // Outputs 10
+        {
+            let j = 20; // This 'j' is block-scoped
+            document.write("<br>");
+            document.write(j); // Outputs 20
+        }
+        document.write("<br>");
+        document.write(j); // Outputs 10, because 'let' is block-scoped
+
+        const k = 10;
+        document.write("<br>");
+        document.write(k); // Outputs 10
+        {
+            const k = 20; // This 'k' is block-scoped
+            document.write("<br>");
+            document.write(k); // Outputs 20
+        }
+        document.write("<br>");
+        document.write(k); // Outputs 10, because 'const' is block-scoped
+    </script>
+    
+</body>
+</html>

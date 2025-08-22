@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Pair with Target Sum</title>
+</head>
+<body>
+  <h2>Find Pair of Elements Equal to Target</h2>
+  
+  <p id="output"></p>
+
+  <script>
+    function findPair(arr, target) {
+      let map = new Map(); // stores numbers and their indices
+      
+      for (let i = 0; i < arr.length; i++) {
+        let complement = target - arr[i];
+        
+        if (map.has(complement)) {
+          return [map.get(complement), i]; // return indices
+        }
+        map.set(arr[i], i);
+      }
+      return null; // no pair found
+    }
+
+    // Example usage:
+    let array = [2, 7, 11, 15];
+    let target = 9;
+    let result = findPair(array, target);
+
+    if (result) {
+      document.getElementById("output").innerHTML =
+        `Indices of pair: [${result[0]}, ${result[1]}] <br>Values: (${array[result[0]]}, ${array[result[1]]})`;
+    } else {
+      document.getElementById("output").innerHTML = "No pair found!";
+    }
+  </script>
+</body>
+</html>

@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h2>Hi Bros🙋</h2>
+    <input type="text" id="inputField" placeholder="Type something...">
+    <button id="submitButton" onclick="savename()">Submit</button>
+    <p id="displayText"></p>
+    <script>
+        function savename() {
+            let name = document.getElementById("inputField").value;
+            if (name === "") {
+                alert("Please enter a name");
+                return;
+            }
+
+            sessionStorage.setItem("name", name);
+            document.getElementById("displayText").innerText = "Hello, " + name + "!";
+        }
+        window.onload = function() {
+            let storedName = sessionStorage.getItem("name");
+            if (storedName) {
+                document.getElementById("displayText").innerText = "Welcome back, " + storedName + "!";
+            }
+        };
+    </script>
 </body>
 </html>

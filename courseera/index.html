@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venu Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f7f9fb;
+      color: #333;
+    }
+
+    /* -------- Task 1: Styled Name (Top Left) -------- */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0078d7;
+      color: white;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* -------- Task 2: Navbar Styling -------- */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav ul li:hover {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    /* -------- Section Styles -------- */
+    section {
+      padding: 50px 80px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* -------- Task 3: About Me -------- */
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .about-container img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #0078d7;
+      object-fit: cover;
+    }
+
+    /* -------- Task 4: Skills Section -------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .skill {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .skill img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* -------- Task 5: Projects Section -------- */
+    .project {
+      background-color: #fff;
+      border-left: 5px solid #0078d7;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    /* -------- Task 6 & 7: Recommendations -------- */
+    .recommendation {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 4px solid #28a745;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    #recInput {
+      width: 80%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    /* -------- Task 8: Home Icon -------- */
+    .home-icon {
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+
+    /* Popup (Task 9) */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #28a745;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">VENU</div> <!-- Task 1 -->
+    <div class="home-icon">🏠</div> <!-- Task 8 -->
+    <nav>
+      <ul>
+        <li>About</li>
+        <li>Project details</li>
+        <li>Skills</li>
+        <li>Recommendations</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <img src="https://tse4.mm.bing.net/th/id/OIP.ZH9QYTr4uXzp0xeLUJ4TMAHaF2?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Profile Image">
+      <p>Hello! I'm <b>Venu</b>, a Computer Science student with a strong interest in Artificial Intelligence, Machine Learning, and Cybersecurity. I enjoy solving problems, building projects, and exploring new technologies.</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+        <p>HTML</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+        <p>CSS</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">
+        <p>JavaScript</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+        <p>Python</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+        <p>C++</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>1. AI Voice Analyzer</h3>
+      <p>A web-based tool to detect speech disorders using AI-based speech processing.</p>
+    </div>
+    <div class="project">
+      <h3>2. CyberShield</h3>
+      <p>A real-time cybersecurity threat detection dashboard with alerts and analysis.</p>
+    </div>
+    <div class="project">
+      <h3>3. Smart Portfolio</h3>
+      <p>An interactive online portfolio showcasing projects, skills, and recommendations.</p>
+    </div>
+  </section>
+
+  <!-- Recommendations -->
+  <section id="recommendations">
+    <h2>Recommendations</h2>
+    <div id="recList">
+      <div class="recommendation">"Venu is a hardworking and creative individual with a strong grasp of AI concepts."</div>
+      <div class="recommendation">"He is quick to learn new technologies and applies them effectively."</div>
+      <div class="recommendation">"Venu’s problem-solving mindset makes him a great team player."</div>
+    </div>
+
+    <!-- Add new recommendation -->
+    <input type="text" id="recInput" placeholder="Write a new recommendation...">
+    <button onclick="addRecommendation()">Submit</button>
+  </section>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">Thank you for leaving a recommendation!</div>
+
+  <script>
+    // Task 7 + Task 9 Script
+    function addRecommendation() {
+      const input = document.getElementById("recInput");
+      const recList = document.getElementById("recList");
+      const popup = document.getElementById("popup");
+
+      if (input.value.trim() !== "") {
+        const newRec = document.createElement("div");
+        newRec.classList.add("recommendation");
+        newRec.textContent = '"' + input.value.trim() + '"';
+        recList.appendChild(newRec);
+        input.value = "";
+
+        // Show popup
+        popup.style.display = "block";
+        setTimeout(() => popup.style.display = "none", 2000);
+      }
+    }
+  </script>
+
+</body>
+</html>

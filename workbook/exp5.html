@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form Validation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h2 {
+      color: #ff6f61;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-shadow: 1px 2px 8px #fff7;
+      animation: fadeInDown 1s;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    form {
+      width: 350px;
+      padding: 30px 25px 20px 25px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+      border: 2px solid #ffb88c;
+      animation: popIn 0.8s;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #ff6f61;
+      letter-spacing: 1px;
+    }
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      border: 2px solid #ffd6c0;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+      background: #fff8f4;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 8px #ffecd2a0;
+    }
+    input:focus {
+      border-color: #ff6f61;
+      box-shadow: 0 0 8px #ffb88c80;
+      background: #fff3e9;
+    }
+    .error {
+      color: #ff3b2f;
+      font-size: 0.93em;
+      margin-top: -8px;
+      margin-bottom: 10px;
+      min-height: 18px;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+    .success {
+      color: #1bc47d;
+      font-weight: bold;
+      margin-top: 18px;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      animation: fadeIn 1s;
+    }
+    .valid {
+      border-color: #1bc47d !important;
+      background: #eafff3;
+    }
+    .invalid {
+      border-color: #ff3b2f !important;
+      background: #fff0ee;
+    }
+    button {
+      background: linear-gradient(90deg, #ff6f61 0%, #ffb88c 100%);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1.1em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px #ffecd2a0;
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #ffb88c 0%, #ff6f61 100%);
+      transform: scale(1.04);
+    }
+    /* Fun animated confetti for success */
+    .confetti {
+      position: absolute;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .confetti-piece {
+      position: absolute;
+      width: 10px; height: 18px;
+      background: linear-gradient(135deg, #ff6f61, #ffb88c, #1bc47d, #6a11cb, #2575fc);
+      opacity: 0.8;
+      border-radius: 3px;
+      animation: confetti-fall 1.8s linear forwards;
+    }
+    @keyframes confetti-fall {
+      to {
+        transform: translateY(100vh) rotateZ(360deg);
+        opacity: 0.2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form id="registrationForm" novalidate>
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" name="fullname" required>
+    <div class="error" id="fullnameError"></div>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+    <div class="error" id="emailError"></div>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required minlength="6">
+    <div class="error" id="passwordError"></div>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required pattern="^[0-9]{10}$">
+    <div class="error" id="phoneError"></div>
+
+    <button type="submit">Register</button>
+    <div class="success" id="successMessage"></div>
+  </form>
+  <div class="confetti" id="confetti"></div>
+  <script>
+    const form = document.getElementById('registrationForm');
+    const fullname = document.getElementById('fullname');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const phone = document.getElementById('phone');
+
+    const fullnameError = document.getElementById('fullnameError');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    const phoneError = document.getElementById('phoneError');
+    const successMessage = document.getElementById('successMessage');
+    const confetti = document.getElementById('confetti');
+
+    // Validate Full Name
+    fullname.addEventListener('input', () => {
+      if (fullname.value.trim() === "") {
+        showError(fullname, fullnameError, "Full name is required.");
+      } else {
+        showSuccess(fullname, fullnameError);
+      }
+    });
+
+    // Validate Email
+    email.addEventListener('input', () => {
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (email.value.trim() === "") {
+        showError(email, emailError, "Email is required.");
+      } else if (!emailPattern.test(email.value)) {
+        showError(email, emailError, "Enter a valid email address.");
+      } else {
+        showSuccess(email, emailError);
+      }
+    });
+
+    // Validate Password
+    password.addEventListener('input', () => {
+      const strongPassword = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&]).{6,}$/;
+      if (password.value.trim() === "") {
+        showError(password, passwordError, "Password is required.");
+      } else if (!strongPassword.test(password.value)) {
+        showError(password, passwordError, "Password must be 6+ chars, include a number & special character.");
+      } else {
+        showSuccess(password, passwordError);
+      }
+    });
+
+    // Validate Phone
+    phone.addEventListener('input', () => {
+      const phonePattern = /^[0-9]{10}$/;
+      if (phone.value.trim() === "") {
+        showError(phone, phoneError, "Phone number is required.");
+      } else if (!phonePattern.test(phone.value)) {
+        showError(phone, phoneError, "Phone number must be 10 digits.");
+      } else {
+        showSuccess(phone, phoneError);
+      }
+    });
+
+    // Show error
+    function showError(input, errorField, message) {
+      input.classList.add('invalid');
+      input.classList.remove('valid');
+      errorField.textContent = message;
+    }
+
+    // Show success
+    function showSuccess(input, errorField) {
+      input.classList.add('valid');
+      input.classList.remove('invalid');
+      errorField.textContent = "";
+    }
+
+    // Confetti animation
+    function launchConfetti() {
+      confetti.innerHTML = '';
+      for (let i = 0; i < 40; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.background = `linear-gradient(135deg, #ff6f61, #ffb88c, #1bc47d, #6a11cb, #2575fc)`;
+        piece.style.animationDelay = (Math.random() * 0.5) + 's';
+        confetti.appendChild(piece);
+      }
+      setTimeout(() => { confetti.innerHTML = ''; }, 2000);
+    }
+
+    // Handle form submission
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // stop default submission
+      if (fullname.classList.contains('valid') &&
+          email.classList.contains('valid') &&
+          password.classList.contains('valid') &&
+          phone.classList.contains('valid')) {
+        successMessage.textContent = "🎉 Registration Successful!";
+        launchConfetti();
+        form.reset();
+        fullname.classList.remove('valid');
+        email.classList.remove('valid');
+        password.classList.remove('valid');
+        phone.classList.remove('valid');
+      } else {
+        successMessage.textContent = "";
+        alert("Please correct errors before submitting.");
+      }
+    });
+  </script>
+</body>
+</html>

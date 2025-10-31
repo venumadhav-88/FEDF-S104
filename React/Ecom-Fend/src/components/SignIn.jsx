@@ -11,12 +11,16 @@ const SignIn = () => {
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find(u => u.email === email && u.password === password);
-    
 
     if (user) {
       sessionStorage.setItem("user", JSON.stringify(user));
       alert("Login successful!");
-      navigate("/dashboard");
+      // redirect based on role: admin -> dashboard, regular user -> products
+      if (user.role && user.role.toLowerCase() === "admin") {
+        navigate("/dashboard");
+      } else {
+        navigate("/products");
+      }
     } else {
       alert("Invalid credentials!");
     }

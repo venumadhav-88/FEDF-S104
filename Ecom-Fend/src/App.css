@@ -1,0 +1,141 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9; /* Light background for the page */
+  min-height: 100vh; /* Ensure the body takes up the full height */
+}
+
+/* Root Container */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the root spans the full height */
+  width: 100%; /* Ensure the root spans the full width */
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ff0000; /* Red background for header */
+  color: white;
+  padding: 1rem 2rem;
+  width: 100%; /* Ensure the header spans the full width */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.header-left h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.header-left p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.header-right .logo {
+  width: 80px;
+  height: auto;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #ff0000; /* Red background for navigation bar */
+  padding: 0.5rem 0;
+  width: 100%; /* Ensure the navbar spans the full width */
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Main Content Styles */
+.main-content {
+  text-align: center;
+  padding: 2rem;
+  flex: 1; /* Ensure the main content takes up remaining space */
+  width: 100%; /* Ensure the main content spans the full width */
+  box-sizing: border-box; /* Include padding in width calculation */
+  background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/08/Nature-beautiful-desktop-images-cool.jpg'); /* Background image URL */
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-attachment: fixed; /* Makes the background image fixed while scrolling */
+  color: white; /* Text color to contrast with the background */
+}
+
+.banner {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #ff0000;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

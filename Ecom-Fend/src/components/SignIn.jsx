@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
@@ -8,14 +8,12 @@ const SignIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     let users = JSON.parse(localStorage.getItem("users")) || [];
-    const user = users.find(u => u.email === email && u.password === password);
+    const user = users.find((u) => u.email === email && u.password === password);
 
     if (user) {
       sessionStorage.setItem("user", JSON.stringify(user));
       alert("Login successful!");
-      // redirect based on role: admin -> dashboard, regular user -> products
       if (user.role && user.role.toLowerCase() === "admin") {
         navigate("/dashboard");
       } else {
@@ -27,20 +25,12 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-      <h2 className="text-3xl font-bold mb-6">Sign In</h2>
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-96">
-        <input type="email" placeholder="Email"
-          value={email} onChange={(e) => setEmail(e.target.value)}
-          className="w-full border p-2 mb-3 rounded" required />
-
-        <input type="password" placeholder="Password"
-          value={password} onChange={(e) => setPassword(e.target.value)}
-          className="w-full border p-2 mb-3 rounded" required />
-
-        <button type="submit" className="bg-green-500 text-white px-4 py-2 w-full rounded hover:bg-green-600">
-          Sign In
-        </button>
+    <div className="form-container">
+      <form onSubmit={handleSubmit} aria-label="Sign in form">
+        <h2>Sign In</h2>
+        <input className="input" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <input className="input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <button className="btn btn-primary" type="submit">Sign In</button>
       </form>
     </div>
   );

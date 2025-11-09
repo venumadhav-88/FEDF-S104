@@ -1,31 +1,29 @@
 import { Link } from "react-router-dom";
+import React from 'react';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Navbar */}
-      <nav className="flex justify-between items-center bg-pink-400 p-4 text-white">
-        <div className="flex items-center">
-          <img src="https://upload.wikimedia.org/wikipedia/en/7/78/KL_University_logo.svg" alt="KL Logo" className="w-20 mr-3" />
-          <h1 className="text-2xl font-bold">Product Management System</h1>
+    <main className="hero" role="main" aria-labelledby="home-title">
+      <h1 id="home-title">Welcome to the Product Management System</h1>
+      <p className="lead">
+        Manage products, users, and inventory easily. Sign up as an Admin or User to get started.
+      </p>
+
+      <div className="grid cols-3" style={{ marginTop: 22 }}>
+        <div className="card">
+          <h3>Products</h3>
+          <p className="muted">Add, edit and categorize your products.</p>
         </div>
-        <div className="flex gap-4">
-          <Link to="/signin" className="hover:underline">Sign In</Link>
-          <Link to="/signup" className="hover:underline">Sign Up</Link>
-          <Link to="/aboutus" className="hover:underline">About Us</Link>
+        <div className="card">
+          <h3>Users</h3>
+          <p className="muted">Manage user access and roles.</p>
         </div>
-      </nav>
-      {/* Main Content */}
-      <div className="p-8 text-center">
-        <h2 className="text-3xl font-semibold mb-4">Welcome to the Product Management System</h2>
-        <p className="mb-2 text-gray-700">
-          Manage products, users, and inventory easily.
-        </p>
-        <p className="text-gray-600">
-          Sign up as an Admin or User to get started .
-        </p>
+        <div className="card">
+          <h3>Analytics</h3>
+          <p className="muted">View sales and usage insights.</p>
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

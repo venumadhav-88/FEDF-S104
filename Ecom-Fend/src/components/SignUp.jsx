@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
@@ -47,34 +47,20 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <h2 className="text-3xl font-bold mb-6">Sign Up</h2>
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-96">
-        <input type="text" name="username" placeholder="Username"
-          value={formData.username} onChange={handleChange}
-          className="w-full border p-2 mb-3 rounded" required />
+    <div className="form-container">
+      <form onSubmit={handleSubmit} aria-label="Sign up form">
+        <h2>Sign Up</h2>
+        <input className="input" type="text" name="username" placeholder="Full name" value={formData.username} onChange={handleChange} required />
+        <input className="input" type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+        <input className="input" type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+        <input className="input" type="password" name="confirmPassword" placeholder="Confirm Password" value={formData.confirmPassword} onChange={handleChange} required />
 
-        <input type="email" name="email" placeholder="Email"
-          value={formData.email} onChange={handleChange}
-          className="w-full border p-2 mb-3 rounded" required />
-
-        <input type="password" name="password" placeholder="Password"
-          value={formData.password} onChange={handleChange}
-          className="w-full border p-2 mb-3 rounded" required />
-
-        <input type="password" name="confirmPassword" placeholder="Confirm Password"
-          value={formData.confirmPassword} onChange={handleChange}
-          className="w-full border p-2 mb-3 rounded" required />
-
-        <select name="role" value={formData.role} onChange={handleChange}
-          className="w-full border p-2 mb-3 rounded">
+        <select className="input" name="role" value={formData.role} onChange={handleChange}>
           <option value="user">User</option>
           <option value="admin">Admin</option>
         </select>
 
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 w-full rounded hover:bg-blue-600">
-          Sign Up
-        </button>
+        <button className="btn btn-primary" type="submit">Sign Up</button>
       </form>
     </div>
   );
